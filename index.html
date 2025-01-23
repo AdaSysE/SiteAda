@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adasys ERP</title>
+    <link rel="icon" href="./img/logo_solitario_ICO.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/reset.min.css">
+    <link rel="stylesheet" href="./css/default.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-image: url("../img/background-branco.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .background-image {
+            background-image: url("./img/background-branco.jpg");
+            /* Substitua o caminho pela sua imagem de fundo */
+            background-size: cover;
+            /* Ajuste para cobrir todo o espaço do elemento */
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .background-image img {
+            width: 100%;
+            /* Ajuste o tamanho conforme necessário */
+            max-width: 800px;
+            /* Limita a largura máxima */
+            height: auto;
+            margin-top: -50px;
+            /* Ajuste o valor conforme necessário */
+        }
+
+        .middle-text {
+            font-size: 35px;
+            margin-bottom: 10%;
+            /* Espaçamento entre o texto no meio da página e o texto na parte inferior */
+            color: black;
+            /* Cor do texto branco */
+            margin-top: 0px;
+            /* Ajuste o valor conforme necessário */
+        }
+
+        .bottom-text {
+            font-size: 60px;
+            color: black;
+            /* Cor do texto branco */
+            margin-bottom: 10%;
+            /* Ajuste o valor conforme necessário */
+        }
+
+        hr {
+            width: 50%;
+            margin-top: -80px;
+            margin-bottom: 20px;
+            display: none; /* Oculta o hr por padrão */
+        }
+
+        @media (max-width: 768px) {
+            /* Estilos específicos para dispositivos com largura máxima de 768px */
+            .background-image img {
+                margin-top: -300px;
+                /* Ajuste o valor conforme necessário */
+            }
+
+            .middle-text {
+                font-size: 20px;
+                margin-bottom: 250px;
+                /* Espaçamento entre o texto no meio da página e o texto na parte inferior */
+                margin-top: 100px;
+                /* Ajuste o valor conforme necessário */
+            }
+
+            .bottom-text {
+                font-size: 30px;
+                margin-bottom: -200px;
+                /* Ajuste o valor conforme necessário */
+            }
+
+            hr {
+                display: block; /* Exibe o hr na versão mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-image">
+        <img src="./img/logo.png" alt="Logo da Empresa">
+        <hr>
+        <h1 class="middle-text">A revolução nos negócios chegou: descubra o poder do nosso ERP <br> e impulsione sua empresa para <br> o próximo nível! </h1>
+        <h2 class="bottom-text">Em Breve...</h2>
+    </div>
+</body>
+</html>
