@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charSet="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./_next/static/css/c1f471f564fa81d3.css" data-precedence="next" />
+    <link rel="preload" as="script" fetchPriority="low" href="./_next/static/chunks/webpack-f5d59c4ffd9ab5dd.js" />
+    <script src="./_next/static/chunks/ebe977ba-e4c408354d110c1b.js" async=""></script>
+    <script src="./_next/static/chunks/411-0ff63d061404826c.js" async=""></script>
+    <script src="./_next/static/chunks/main-app-4d19e322d3c3defe.js" async=""></script>
+    <script src="./_next/static/chunks/612-c23a4a11d48ba472.js" async=""></script>
+    <script src="./_next/static/chunks/app/demo/page-6a39314ed7f75f61.js" async=""></script>
+    <script src="./_next/static/chunks/app/layout-209b58dfdb658b96.js" async=""></script>
+    <meta name="description" content="ADA ERP - Sistema ERP especializado em e-commerce" />
+    <title>ADA ERP - Sistema ERP para E-commerce</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="16x16" />
+    <script src="./_next/static/chunks/polyfills-42372ed130431b0a.js" noModule=""></script>
+</head>
+
+<body>
+     <div id="header-placeholder"></div>
+<script>
+  fetch('/header.html') // ou './header.html' se estiver na mesma pasta
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header-placeholder').innerHTML = data;
+    });
+</script>
+    <main class="flex min-h-screen flex-col items-center">
+        <section class="w-full bg-gradient-to-b from-gray-100 to-white py-16 px-4">
+            <div class="container mx-auto max-w-6xl">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 text-center">Garanta seu <span
+                        class="text-purple-700">Acesso Antecipado</span></h1>
+                <p class="text-lg text-gray-700 max-w-3xl mx-auto text-center mb-12">Tenha prioridade no lançamento oficial do ADA ERP e receba um desconto exclusivo!</p>
+            </div>
+        </section>
+        <section class="w-full py-16 px-4 bg-white">
+            <div class="container mx-auto max-w-6xl">
+                <div class="flex flex-col lg:flex-row gap-12">
+                    <div class="lg:w-1/2 bg-gray-50 p-8 rounded-lg shadow-sm">
+                        <h2 class="text-2xl font-bold mb-6">Cadastre-se agora</h2>
+                        <p class="text-gray-600 mb-6">Preencha o formulário abaixo para entrar na nossa lista de acesso antecipado. Quando o ADA ERP for lançado, você receberá vantagens exclusivas, incluindo desconto especial e prioridade de ativação.</p>
+                        <form action="https://formspree.io/f/manjwagy" method="POST" class="space-y-6">
+                            <div>
+                                <label for="nome" class="form-label">Nome completo</label>
+                                <input type="text" id="nome" name="nome" class="form-input" placeholder="Seu nome completo" required />
+                            </div>
+                            <div>
+                                <label for="empresa" class="form-label">Empresa</label>
+                                <input type="text" id="empresa" name="empresa" class="form-input" placeholder="Nome da sua empresa" required />
+                            </div>
+                            <div>
+                                <label for="cargo" class="form-label">Cargo</label>
+                                <input type="text" id="cargo" name="cargo" class="form-input" placeholder="Seu cargo na empresa" />
+                            </div>
+                            <div>
+                                <label for="email" class="form-label">E-mail corporativo</label>
+                                <input type="email" id="email" name="email" class="form-input" placeholder="seu@empresa.com.br" required />
+                            </div>
+                            <div>
+                                <label for="telefone" class="form-label">Telefone</label>
+                                <input type="tel" id="telefone" name="telefone" class="form-input" placeholder="(00) 00000-0000" required />
+                            </div>
+                            <div>
+                                <label for="segmento" class="form-label">Segmento de e-commerce</label>
+                                <select id="segmento" name="segmento" class="form-input" required>
+                                <option value="">Selecione um segmento</option>
+                                <option value="moda">Moda e Vestuário</option>
+                                <option value="eletronicos">Eletrônicos</option>
+                                <option value="alimentos">Alimentos e Bebidas</option>
+                                <option value="saude">Saúde e Beleza</option>
+                                <option value="casa">Casa e Decoração</option>
+                                <option value="esportes">Esportes e Lazer</option>
+                                <option value="outro">Outro</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="faturamento" class="form-label">Faturamento mensal aproximado</label>
+                                <select id="faturamento" name="faturamento" class="form-input">
+                                <option value="">Selecione uma faixa</option>
+                                <option value="ate50k">Até R$ 50 mil</option>
+                                <option value="50k-100k">R$ 50 mil a R$ 100 mil</option>
+                                <option value="100k-500k">R$ 100 mil a R$ 500 mil</option>
+                                <option value="500k-1m">R$ 500 mil a R$ 1 milhão</option>
+                                <option value="acima1m">Acima de R$ 1 milhão</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="interesse" class="form-label">Principal interesse</label>
+                                <select id="interesse" name="interesse" class="form-input" required>
+                                <option value="">Selecione uma opção</option>
+                                <option value="gestao_vendas">Gestão de Vendas</option>
+                                <option value="estoque">Controle de Estoque</option>
+                                <option value="financeiro">Gestão Financeira</option>
+                                <option value="integracao">Integração com Marketplaces</option>
+                                <option value="automacao">Automação de Processos</option>
+                                <option value="relatorios">Relatórios e Análises</option>
+                                <option value="completo">Sistema Completo</option>
+                                </select>
+                            </div>
+                            <div class="flex items-start">
+                                <input type="checkbox" id="privacidade" name="privacidade" class="mt-1 h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 rounded" required />
+                                <label for="privacidade" class="ml-2 block text-sm text-gray-700">
+                                Concordo com a <a class="text-purple-700 hover:underline" href="/politica-de-privacidade">Política de Privacidade</a> e com o recebimento de comunicações.
+                                </label>
+                            </div>
+
+                             <!-- evita CAPTCHA -->
+                            <input type="hidden" name="_redirect" value="/obrigado">
+
+                            <!-- botão de envio -->
+                            <div>
+                                <button type="submit" class="btn-primary w-full">Quero acesso antecipado</button>
+                            </div>
+                           
+                        </form>
+
+                        
+
+                    </div>
+                    <div class="lg:w-1/2">
+                        <h2 class="text-2xl font-bold mb-6">Benefícios do Acesso Antecipado</h2>
+                        <div class="space-y-8">
+                            <div class="flex gap-4">
+                                <div class="flex-shrink-0">
+                                    <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+                                       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-700" fill="currentColor" viewBox="0 0 24 24">
+                                            <text x="6" y="18" font-size="16" font-family="Arial, sans-serif" fill="currentColor">$</text>
+                                        </svg></div>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-semibold mb-2">Desconto exclusivo de lançamento</h3>
+                                    <p class="text-gray-600">Economize ao ser um dos primeiros a utilizar o ADA ERP.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="flex-shrink-0">
+                                    <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg></div>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-semibold mb-2">Vaga garantida no lançamento</h3>
+                                    <p class="text-gray-600">Seja um dos primeiros a testar o sistema assim que ele for disponibilizado.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="flex-shrink-0">
+                                    <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-18 8h18a2 2 0 002-2V6a2 2 0 00-2-2H3a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                                        </svg></div>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-semibold mb-2">Acesso a novidades em primeira mão</h3>
+                                    <p class="text-gray-600">Receba atualizações sobre o desenvolvimento e funcionalidades do ERP diretamente no seu e-mail.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="flex-shrink-0">
+                                    <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 015.656 5.656l-3 3a4 4 0 01-5.656-5.656m-3.536-3.536a4 4 0 015.656-5.656l3 3a4 4 0 01-5.656 5.656" />
+                                        </svg></div>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-semibold mb-2">Integração completa</h3>
+                                    <p class="text-gray-600">Descubra como o ADA ERP se integra com as principais
+                                        plataformas de e-commerce, marketplaces e ferramentas que você já utiliza.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-10 p-6 bg-purple-50 rounded-lg border border-purple-100">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0"><svg xmlns="http://www.w3.org/2000/svg"
+                                        class="h-6 w-6 text-purple-700" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg></div>
+                                <div class="ml-3">
+                                    <h3 class="text-lg font-semibold mb-2">Pré-lançamento exclusivo</h3>
+                                    <p class="text-gray-600">O ADA ERP está em fase final de desenvolvimento. Ao
+                                        se cadastrar agora, você garante acesso prioritário e condições
+                                        especiais de lançamento.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>        
+        <section class="w-full py-16 px-4 bg-white">
+            <div class="container mx-auto max-w-4xl">
+                <h2 class="text-3xl font-bold mb-12 text-center">Perguntas Frequentes</h2>
+                <div class="space-y-6">
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-3">O que é o acesso antecipado ao ADA ERP?</h3>
+                        <p class="text-gray-600">O acesso antecipado é uma oportunidade para se cadastrar antes 
+                            do lançamento oficial do sistema, garantindo benefícios exclusivos como descontos 
+                            e condições especiais.</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-3">Quais são as vantagens de me cadastrar agora?</h3>
+                        <p class="text-gray-600">Você garante um desconto exclusivo de lançamento, prioridade 
+                            no contato com a equipe comercial e acesso antecipado às novidades e 
+                            funcionalidades do sistema.</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-3">Preciso pagar algo para participar do acesso antecipado?</h3>
+                        <p class="text-gray-600">Não. O cadastro no acesso antecipado é totalmente gratuito e sem compromisso.</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-3">Como serei avisado quando o sistema estiver disponível?</h3>
+                        <p class="text-gray-600">Nossa equipe comercial entrará em contato com você por e-mail ou telefone 
+                            assim que o sistema for disponibilizado, oferecendo condições especiais por estar 
+                            na lista de acesso antecipado.</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-3">Posso indicar outras pessoas ou empresas para o acesso antecipado?</h3>
+                        <p class="text-gray-600">Sim! Você pode compartilhar o link de cadastro com colegas ou 
+                            empresas que também se beneficiarão da solução ADA ERP.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="w-full py-16 px-4 bg-purple-700 text-white">
+            <div class="container mx-auto max-w-4xl text-center">
+                <h2 class="text-3xl font-bold mb-6">Pronto para transformar seu e-commerce?</h2>
+                <p class="text-xl mb-8 max-w-2xl mx-auto">Não perca tempo com processos manuais e sistemas
+                    desconectados. Cadastre-se no acesso antecipado do ADA ERP e seja um dos primeiros a 
+                    aproveitar os benefícios exclusivos do lançamento.</p><a href="#top"
+                    class="bg-white hover:bg-gray-100 text-purple-700 font-semibold py-3 px-8 rounded-lg transition-all inline-block">Garantir Acesso Antecipado</a>
+            </div>
+        </section>
+    </main>
+    
+
+    <div id="footer-placeholder"></div>
+
+    
+ <script>
+  fetch("./footer.html") // Mantendo caminho relativo
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.text();
+    })
+    .then(data => {
+      console.log("--- Conteúdo recebido do footer.html ---");
+      console.log(data); // <-- Linha adicionada para depuração
+      console.log("--- Fim do conteúdo recebido ---");
+      
+      const placeholder = document.getElementById("footer-placeholder");
+      if (placeholder) {
+        try {
+          placeholder.innerHTML = data;
+          console.log("Footer inserido no placeholder.");
+        } catch (e) {
+          console.error("Erro ao tentar inserir o footer com innerHTML:", e);
+        }
+      } else {
+        console.error("Elemento #footer-placeholder não encontrado.");
+      }
+    })
+    .catch(error => {
+      console.error("Erro ao buscar ou processar o footer:", error);
+    });
+</script>
+
+
+</body>
+
+</html>

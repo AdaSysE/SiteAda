@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charSet="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./_next/static/css/c1f471f564fa81d3.css" data-precedence="next" />
+  <link rel="preload" as="script" fetchPriority="low" href="./_next/static/chunks/webpack-f5d59c4ffd9ab5dd.js" />
+  <script src="./_next/static/chunks/ebe977ba-e4c408354d110c1b.js" async=""></script>
+  <script src="./_next/static/chunks/411-0ff63d061404826c.js" async=""></script>
+  <script src="./_next/static/chunks/main-app-4d19e322d3c3defe.js" async=""></script>
+  <script src="./_next/static/chunks/612-c23a4a11d48ba472.js" async=""></script>
+  <script src="./_next/static/chunks/app/sobre/page-6ebcb1e8ac7450ca.js" async=""></script>
+  <script src="./_next/static/chunks/app/layout-209b58dfdb658b96.js" async=""></script>
+  <meta name="description" content="ADA ERP - Política de Privacidade" />
+  <title>Política de Privacidade - ADA ERP</title>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="16x16" />
+  <script src="./_next/static/chunks/polyfills-42372ed130431b0a.js" noModule=""></script>
+</head>
+
+<body>
+   <div id="header-placeholder"></div>
+<script>
+  fetch('/header.html') // ou './header.html' se estiver na mesma pasta
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header-placeholder').innerHTML = data;
+    });
+</script>
+  <main class="flex min-h-screen flex-col items-center justify-start px-4 bg-gradient-to-b from-gray-100 to-white">
+  <div class="mt-20 w-full flex justify-center">
+    <div class="bg-white rounded-2xl shadow-xl p-10 max-w-md text-center">
+      <svg class="w-16 h-16 mx-auto mb-6 text-purple-600" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+      </svg>
+      <h1 class="text-2xl font-bold text-gray-800 mb-4">Mensagem enviada com sucesso!</h1>
+      <p class="text-gray-600 mb-6">
+        Obrigado por entrar em contato com a ADA ERP. Em breve nossa equipe retornará com mais informações.
+      </p>
+      <a href="/" class="inline-block bg-purple-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-800 transition mb-6">
+        Voltar para o início
+      </a>
+    </div>
+  </div>
+</main>
+
+
+ <div id="footer-placeholder"></div>
+
+    
+ <script>
+  fetch("./footer.html") // Mantendo caminho relativo
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.text();
+    })
+    .then(data => {
+      console.log("--- Conteúdo recebido do footer.html ---");
+      console.log(data); // <-- Linha adicionada para depuração
+      console.log("--- Fim do conteúdo recebido ---");
+      
+      const placeholder = document.getElementById("footer-placeholder");
+      if (placeholder) {
+        try {
+          placeholder.innerHTML = data;
+          console.log("Footer inserido no placeholder.");
+        } catch (e) {
+          console.error("Erro ao tentar inserir o footer com innerHTML:", e);
+        }
+      } else {
+        console.error("Elemento #footer-placeholder não encontrado.");
+      }
+    })
+    .catch(error => {
+      console.error("Erro ao buscar ou processar o footer:", error);
+    });
+</script>
+
+</body>
+</html>
