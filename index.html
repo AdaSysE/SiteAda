@@ -29,6 +29,17 @@
       const placeholder = document.getElementById('header-placeholder');
       if (placeholder) {
         placeholder.innerHTML = data;
+        // Adiciona o script do menu mobile APÓS o header ser carregado
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuButton && mobileMenu) {
+          mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden'); // Alterna a classe 'hidden' para mostrar/esconder
+            // Opcional: Adicionar lógica para mudar o ícone (hambúrguer/X)
+          });
+        } else {
+          console.error('Botão ou menu mobile não encontrado após carregar o header.');
+        }
       } else {
         console.error('Elemento #header-placeholder não encontrado.');
       }
@@ -213,83 +224,62 @@
                                     stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M5 13l4 4L19 7"></path>
-                                </svg><span>Fluxos de trabalho personalizáveis para seu negócio</span></li>
+                                </svg><span>Fluxos de trabalho otimizados para maior agilidade</span></li>
                         </ul>
                     </div>
                     <div class="md:w-1/2 md:order-1 flex justify-center">
                         <div class="relative w-full max-w-md">
-                            <div
-                                class="absolute inset-0 bg-purple-100 rounded-xl opacity-50 blur-xl transform rotate-6">
+                            <div class="absolute inset-0 bg-yellow-100 rounded-xl opacity-50 blur-xl transform rotate-6">
                             </div>
                             <div class="relative bg-white p-6 rounded-xl shadow-lg">
-                                <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-4">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-700" fill="none"
+                                <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mb-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-600" fill="none"
                                         viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                                     </svg></div>
-                                <h3 class="text-xl font-semibold mb-2">Economia de Tempo</h3>
-                                <p class="text-gray-600 mb-4">Ganhe até 14 horas por semana ao automatizar rotinas com o ADA ERP e foque no que realmente importa.</p>
+                                <h3 class="text-xl font-semibold mb-2">Menos Trabalho Manual</h3>
+                                <p class="text-gray-600 mb-4">A automação de processos pode reduzir o tempo gasto em tarefas manuais em até 70%. O ADA ERP ajuda você a liberar tempo para focar no crescimento do seu negócio.</p>
                                 <div class="w-full bg-gray-200 rounded-full h-2.5">
-                                    <div class="bg-purple-700 h-2.5 rounded-full w-[35%]"></div>
+                                    <div class="bg-yellow-500 h-2.5 rounded-full w-[70%]"></div>
                                 </div>
                                 <div class="flex justify-between mt-1 text-sm text-gray-500">
-                                    <span>Depois</span><span>Antes</span></div>
+                                    <span>Manual</span><span>Automatizado</span></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="w-full py-16 px-4 bg-purple-700 text-white">
-            <div class="container mx-auto max-w-4xl text-center">
-                <h2 class="text-3xl font-bold mb-6">Pronto para transformar seu e-commerce?</h2>
-                <p class="text-xl mb-8 max-w-2xl mx-auto">O ADA ERP está em fase final de desenvolvimento e será lançado
-                    em breve. Seja um dos primeiros a experimentar e receba condições especiais.</p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center"><a
-                        class="bg-white hover:bg-gray-100 text-purple-700 font-semibold py-3 px-8 rounded-lg transition-all text-center"
-                        href="/acesso-antecipado">Garantir Acesso Antecipado</a><a
-                        class="bg-transparent hover:bg-purple-800 text-white font-semibold py-3 px-8 rounded-lg border border-white transition-all text-center"
-                        href="/contato">Falar com Especialista</a></div>
+        <section class="w-full py-16 px-4 bg-white">
+            <div class="container mx-auto max-w-6xl text-center">
+                <h2 class="text-3xl font-bold mb-4">Pronto para Transformar sua Gestão?</h2>
+                <p class="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">Junte-se a centenas de empresas que já estão otimizando seus processos e impulsionando suas vendas com o ADA ERP.</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4"><a
+                        class="bg-purple-700 hover:bg-purple-800 text-white font-semibold py-3 px-6 rounded-lg transition-all"
+                        href="/acesso-antecipado">Acesso Antecipado</a><a
+                        class="bg-white hover:bg-gray-100 text-purple-700 font-semibold py-3 px-6 rounded-lg border border-purple-700 transition-all"
+                        href="/contato">Falar com um Consultor</a></div>
             </div>
-        </section>       
+        </section>
     </main>
-
     <div id="footer-placeholder"></div>
-
-    
- <script>
-  fetch("./footer.html") // Mantendo caminho relativo
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      return response.text();
-    })
+<script>
+  fetch('./footer.html') // ou './footer.html' se estiver na mesma pasta
+    .then(response => response.text())
     .then(data => {
-      console.log("--- Conteúdo recebido do footer.html ---");
-      console.log(data); // <-- Linha adicionada para depuração
-      console.log("--- Fim do conteúdo recebido ---");
-      
-      const placeholder = document.getElementById("footer-placeholder");
+      const placeholder = document.getElementById('footer-placeholder');
       if (placeholder) {
-        try {
-          placeholder.innerHTML = data;
-          console.log("Footer inserido no placeholder.");
-        } catch (e) {
-          console.error("Erro ao tentar inserir o footer com innerHTML:", e);
-        }
+        placeholder.innerHTML = data;
       } else {
-        console.error("Elemento #footer-placeholder não encontrado.");
+        console.error('Elemento #footer-placeholder não encontrado.');
       }
     })
     .catch(error => {
-      console.error("Erro ao buscar ou processar o footer:", error);
+      console.error('Erro ao buscar o footer:', error);
     });
 </script>
 
-
-
-
 </body>
+
 </html>

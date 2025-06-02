@@ -22,10 +22,21 @@
 <body>
      <div id="header-placeholder"></div>
 <script>
-  fetch('/header.html') // ou './header.html' se estiver na mesma pasta
+  fetch('./header.html') // Caminho relativo para garantir consistência
     .then(response => response.text())
     .then(data => {
       document.getElementById('header-placeholder').innerHTML = data;
+      
+      // Adiciona o script do menu mobile APÓS o header ser carregado
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden'); // Alterna a classe 'hidden' para mostrar/esconder
+        });
+      } else {
+        console.error('Botão ou menu mobile não encontrado após carregar o header.');
+      }
     });
 </script>
     <main class="flex min-h-screen flex-col items-center">
