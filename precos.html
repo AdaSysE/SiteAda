@@ -4,7 +4,6 @@
 <head>
     <meta charSet="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="./_next/static/css/c1f471f564fa81d3.css" data-precedence="next" />
     <link rel="preload" as="script" fetchPriority="low" href="./_next/static/chunks/webpack-f5d59c4ffd9ab5dd.js" />
     <script src="./_next/static/chunks/ebe977ba-e4c408354d110c1b.js" async=""></script>
@@ -13,8 +12,8 @@
     <script src="./_next/static/chunks/612-c23a4a11d48ba472.js" async=""></script>
     <script src="./_next/static/chunks/app/precos/page-cad67358885f883f.js" async=""></script>
     <script src="./_next/static/chunks/app/layout-209b58dfdb658b96.js" async=""></script>
-    <meta name="description" content="ADA ERP - Sistema ERP especializado em e-commerce" />
-    <title>ADA ERP - Sistema ERP para E-commerce</title>
+    <meta name="description" content="Conheça os planos e preços do ADA ERP. Escolha o plano ideal para o seu e-commerce e comece a otimizar sua gestão hoje." />
+    <title>Preços | ADA ERP</title>
     <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="16x16" />
     <script src="./_next/static/chunks/polyfills-42372ed130431b0a.js" noModule=""></script>
 </head>
@@ -452,15 +451,10 @@
       return response.text();
     })
     .then(data => {
-      console.log("--- Conteúdo recebido do footer.html ---");
-      console.log(data); // <-- Linha adicionada para depuração
-      console.log("--- Fim do conteúdo recebido ---");
-      
       const placeholder = document.getElementById("footer-placeholder");
       if (placeholder) {
         try {
           placeholder.innerHTML = data;
-          console.log("Footer inserido no placeholder.");
         } catch (e) {
           console.error("Erro ao tentar inserir o footer com innerHTML:", e);
         }

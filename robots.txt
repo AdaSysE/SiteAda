@@ -1,0 +1,16 @@
+# robots.txt — ADA ERP
+# https://adasys.com.br
+
+User-agent: *
+Allow: /
+
+# Bloqueia diretórios internos e build do Next.js
+Disallow: /_next/
+Disallow: /Instrucoes Claude/
+Disallow: /*.txt$
+
+# Páginas que não interessam para indexação
+Disallow: /obrigado
+Disallow: /obrigado.html
+
+Sitemap: https://adasys.com.br/sitemap.xml

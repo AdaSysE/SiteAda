@@ -4,32 +4,43 @@
 <head>
   <meta charSet="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="./_next/static/css/c1f471f564fa81d3.css" data-precedence="next" /> 
-  <meta name="description" content="ADA ERP - Sistema ERP especializado em e-commerce" />
-  <title>ADA ERP - Sistema ERP para E-commerce</title>
+  <link rel="stylesheet" href="./_next/static/css/c1f471f564fa81d3.css" data-precedence="next" />
+  <meta name="description" content="Conheça a história, missão e visão da ADA ERP - o sistema de gestão especializado em e-commerce que está transformando o mercado." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://adasys.com.br/sobre" />
+  <meta property="og:title" content="Sobre Nós | ADA ERP" />
+  <meta property="og:description" content="Conheça a história, missão e visão da ADA ERP - o sistema de gestão especializado em e-commerce que está transformando o mercado." />
+  <meta property="og:image" content="https://adasys.com.br/og-image.png" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="ADA ERP" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Sobre Nós | ADA ERP" />
+  <meta name="twitter:description" content="Conheça a história, missão e visão da ADA ERP - o sistema de gestão especializado em e-commerce que está transformando o mercado." />
+  <meta name="twitter:image" content="https://adasys.com.br/og-image.png" />
+  <title>Sobre Nós | ADA ERP</title>
   <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="16x16" />
-  <script src="./_next/static/chunks/polyfills-42372ed130431b0a.js" noModule=""></script>
+  <style>.fade-up{opacity:0;transform:translateY(24px);transition:opacity .7s ease-out,transform .7s ease-out}.fade-up.visible{opacity:1;transform:translateY(0)}</style>
 </head>
 
 <body>
    <div id="header-placeholder"></div>
 <script>
-  fetch('./header.html') // Caminho relativo para garantir consistência
-    .then(response => response.text())
-    .then(data => {
+  fetch('./header.html')
+    .then(function(r) { return r.text(); })
+    .then(function(data) {
       document.getElementById('header-placeholder').innerHTML = data;
-      
-      // Adiciona o script do menu mobile APÓS o header ser carregado
-      const mobileMenuButton = document.getElementById('mobile-menu-button');
-      const mobileMenu = document.getElementById('mobile-menu');
-      if (mobileMenuButton && mobileMenu) {
-        mobileMenuButton.addEventListener('click', () => {
-          mobileMenu.classList.toggle('hidden'); // Alterna a classe 'hidden' para mostrar/esconder
-        });
-      } else {
-        console.error('Botão ou menu mobile não encontrado após carregar o header.');
-      }
+      var btn = document.getElementById('mobile-menu-button');
+      var menu = document.getElementById('mobile-menu');
+      if (btn && menu) btn.addEventListener('click', function() { menu.classList.toggle('hidden'); });
+      var path = window.location.pathname.replace(/\.html$/, '').replace(/\/index$/, '/');
+      if (path !== '/') path = path.replace(/\/$/, '');
+      document.querySelectorAll('#header-placeholder a.font-medium').forEach(function(link) {
+        var href = link.getAttribute('href');
+        if (href === path || (href === '/' && (path === '/' || path === ''))) {
+          link.classList.remove('text-gray-700');
+          link.classList.add('text-purple-700');
+        }
+      });
     });
 </script>
   <main class="flex min-h-screen flex-col items-center">
@@ -49,7 +60,7 @@
             <p class="text-lg text-gray-700 mb-4">A ADA ERP nasceu da percepção de que o mercado de e-commerce
               brasileiro precisava de uma solução de gestão específica para suas necessidades, que fosse ao mesmo tempo
               poderosa e fácil de usar.</p>
-            <p class="text-lg text-gray-700 mb-4">Fundada em 2023 por um grupo de especialistas em tecnologia e
+            <p class="text-lg text-gray-700 mb-4">Fundada em 2024 por um grupo de especialistas em tecnologia e
               e-commerce, nossa empresa combina conhecimento técnico avançado com profunda compreensão dos desafios
               enfrentados por lojas virtuais de todos os tamanhos.</p>
             <p class="text-lg text-gray-700">Nosso objetivo é democratizar o acesso a ferramentas de gestão empresarial
@@ -110,22 +121,22 @@
 
 <div class="timeline">
   <div class="timeline-item">
-    <div class="timeline-year">2023</div>
+    <div class="timeline-year">2024</div>
     <div class="timeline-desc">Criação da ADA ERP e início do projeto de desenvolvimento do sistema focado em e-commerce.</div>
   </div>
 
   <div class="timeline-item">
-    <div class="timeline-year">2024</div>
-    <div class="timeline-desc">Desenvolvimento contínuo e início dos testes internos. Montagem da equipe de QA para garantir a qualidade da solução.</div>
+    <div class="timeline-year">2025</div>
+    <div class="timeline-desc">Desenvolvimento contínuo e testes internos. Montagem da equipe de QA para garantir a qualidade da solução.</div>
   </div>
 
   <div class="timeline-item">
-    <div class="timeline-year">2025 (Atual)</div>
-    <div class="timeline-desc">Fase final de testes com a equipe de QA, ajustes e melhorias. Preparação para o lançamento oficial.</div>
+    <div class="timeline-year">2026 (Atual)</div>
+    <div class="timeline-desc">Fase final de desenvolvimento, com foco especial na adequação ao novo regime tributário da NF-e (Reforma Tributária). Preparação para o lançamento oficial.</div>
   </div>
 
   <div class="timeline-item">
-    <div class="timeline-year">Final de 2025 (Previsto)</div>
+    <div class="timeline-year">Outubro de 2026 (Previsto)</div>
     <div class="timeline-desc">Lançamento oficial do ADA ERP — um sistema pensado para transformar a gestão de e-commerces brasileiros.</div>
   </div>
 
@@ -259,7 +270,7 @@
         <div class="mt-12 text-center bg-purple-50 p-8 rounded-xl border border-purple-200">
           <h3 class="text-2xl font-semibold mb-4 text-purple-800">Prepare-se para o Lançamento!</h3>
           <p class="text-gray-700 mb-6 max-w-2xl mx-auto">O ADA ERP está em fase final de desenvolvimento e o lançamento
-            está previsto para o final de 2025. Estamos trabalhando intensamente para entregar uma solução que realmente
+            está previsto para Outubro de 2026. Estamos trabalhando intensamente para entregar uma solução que realmente
             faça a diferença no seu dia a dia.</p>
           <p class="text-gray-700 mb-8 max-w-2xl mx-auto">Seja um dos primeiros a experimentar e receba condições especiais.</p>
           <a href="/acesso-antecipado"
@@ -285,36 +296,32 @@
   </main>
   
   <div id="footer-placeholder"></div>
-
-    
- <script>
-  fetch("./footer.html") // Mantendo caminho relativo
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      return response.text();
-    })
-    .then(data => {
-      console.log("--- Conteúdo recebido do footer.html ---");
-      console.log(data); // <-- Linha adicionada para depuração
-      console.log("--- Fim do conteúdo recebido ---");
-      
-      const placeholder = document.getElementById("footer-placeholder");
-      if (placeholder) {
-        try {
-          placeholder.innerHTML = data;
-          console.log("Footer inserido no placeholder.");
-        } catch (e) {
-          console.error("Erro ao tentar inserir o footer com innerHTML:", e);
-        }
-      } else {
-        console.error("Elemento #footer-placeholder não encontrado.");
-      }
-    })
-    .catch(error => {
-      console.error("Erro ao buscar ou processar o footer:", error);
+<script>
+  fetch('./footer.html')
+    .then(function(r) { return r.text(); })
+    .then(function(data) {
+      var el = document.getElementById('footer-placeholder');
+      if (el) el.innerHTML = data;
     });
+</script>
+<script>
+(function() {
+  var items = document.querySelectorAll(
+    'main section:not(:first-child) .grid > div,' +
+    'main section:not(:first-child) .bg-white.p-6,' +
+    'main section:not(:first-child) .bg-gray-50.p-6,' +
+    'main section:not(:first-child) .bg-gray-50.p-8,' +
+    'main section:not(:first-child) .bg-white.p-8'
+  );
+  items.forEach(function(el) { el.classList.add('fade-up'); });
+  document.querySelectorAll('main section:not(:first-child) h2').forEach(function(el) { el.classList.add('fade-up'); });
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(function(el) { observer.observe(el); });
+})();
 </script>
 
 </body>

@@ -4,28 +4,43 @@
 <head>
     <meta charSet="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="./_next/static/css/c1f471f564fa81d3.css" data-precedence="next" />
-    <link rel="preload" as="script" fetchPriority="low" href="./_next/static/chunks/webpack-f5d59c4ffd9ab5dd.js" />
-    <script src="./_next/static/chunks/ebe977ba-e4c408354d110c1b.js" async=""></script>
-    <script src="./_next/static/chunks/411-0ff63d061404826c.js" async=""></script>
-    <script src="./_next/static/chunks/main-app-4d19e322d3c3defe.js" async=""></script>
-    <script src="./_next/static/chunks/612-c23a4a11d48ba472.js" async=""></script>
-    <script src="./_next/static/chunks/app/demo/page-6a39314ed7f75f61.js" async=""></script>
-    <script src="./_next/static/chunks/app/layout-209b58dfdb658b96.js" async=""></script>
-    <meta name="description" content="ADA ERP - Sistema ERP especializado em e-commerce" />
-    <title>ADA ERP - Sistema ERP para E-commerce</title>
+    <meta name="description" content="Garanta seu acesso antecipado ao ADA ERP e receba desconto exclusivo de lançamento. Cadastre-se gratuitamente." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://adasys.com.br/acesso-antecipado" />
+    <meta property="og:title" content="Acesso Antecipado | ADA ERP" />
+    <meta property="og:description" content="Garanta seu acesso antecipado ao ADA ERP e receba desconto exclusivo de lançamento. Cadastre-se gratuitamente." />
+    <meta property="og:image" content="https://adasys.com.br/og-image.png" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="ADA ERP" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Acesso Antecipado | ADA ERP" />
+    <meta name="twitter:description" content="Garanta seu acesso antecipado ao ADA ERP e receba desconto exclusivo de lançamento. Cadastre-se gratuitamente." />
+    <meta name="twitter:image" content="https://adasys.com.br/og-image.png" />
+    <title>Acesso Antecipado | ADA ERP</title>
     <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="16x16" />
-    <script src="./_next/static/chunks/polyfills-42372ed130431b0a.js" noModule=""></script>
+    <style>.fade-up{opacity:0;transform:translateY(24px);transition:opacity .7s ease-out,transform .7s ease-out}.fade-up.visible{opacity:1;transform:translateY(0)}</style>
 </head>
 
 <body>
      <div id="header-placeholder"></div>
 <script>
-  fetch('/header.html') // ou './header.html' se estiver na mesma pasta
-    .then(response => response.text())
-    .then(data => {
+  fetch('./header.html')
+    .then(function(r) { return r.text(); })
+    .then(function(data) {
       document.getElementById('header-placeholder').innerHTML = data;
+      var btn = document.getElementById('mobile-menu-button');
+      var menu = document.getElementById('mobile-menu');
+      if (btn && menu) btn.addEventListener('click', function() { menu.classList.toggle('hidden'); });
+      var path = window.location.pathname.replace(/\.html$/, '').replace(/\/index$/, '/');
+      if (path !== '/') path = path.replace(/\/$/, '');
+      document.querySelectorAll('#header-placeholder a.font-medium').forEach(function(link) {
+        var href = link.getAttribute('href');
+        if (href === path || (href === '/' && (path === '/' || path === ''))) {
+          link.classList.remove('text-gray-700');
+          link.classList.add('text-purple-700');
+        }
+      });
     });
 </script>
     <main class="flex min-h-screen flex-col items-center">
@@ -39,7 +54,7 @@
         <section class="w-full py-16 px-4 bg-white">
             <div class="container mx-auto max-w-6xl">
                 <div class="flex flex-col lg:flex-row gap-12">
-                    <div class="lg:w-1/2 bg-gray-50 p-8 rounded-lg shadow-sm">
+                    <div id="form-acesso" class="lg:w-1/2 bg-gray-50 p-8 rounded-lg shadow-sm">
                         <h2 class="text-2xl font-bold mb-6">Cadastre-se agora</h2>
                         <p class="text-gray-600 mb-6">Preencha o formulário abaixo para entrar na nossa lista de acesso antecipado. Quando o ADA ERP for lançado, você receberá vantagens exclusivas, incluindo desconto especial e prioridade de ativação.</p>
                         <form action="https://formspree.io/f/manjwagy" method="POST" class="space-y-6">
@@ -52,7 +67,7 @@
                                 <input type="text" id="empresa" name="empresa" class="form-input" placeholder="Nome da sua empresa" required />
                             </div>
                             <div>
-                                <label for="cargo" class="form-label">Cargo</label>
+                                <label for="cargo" class="form-label">Cargo <span class="text-gray-400 text-sm font-normal">(opcional)</span></label>
                                 <input type="text" id="cargo" name="cargo" class="form-input" placeholder="Seu cargo na empresa" />
                             </div>
                             <div>
@@ -60,8 +75,8 @@
                                 <input type="email" id="email" name="email" class="form-input" placeholder="seu@empresa.com.br" required />
                             </div>
                             <div>
-                                <label for="telefone" class="form-label">Telefone</label>
-                                <input type="tel" id="telefone" name="telefone" class="form-input" placeholder="(00) 00000-0000" required />
+                                <label for="telefone" class="form-label">Telefone <span class="text-gray-400 text-sm font-normal">(opcional)</span></label>
+                                <input type="tel" id="telefone" name="telefone" class="form-input" placeholder="(00) 00000-0000" />
                             </div>
                             <div>
                                 <label for="segmento" class="form-label">Segmento de e-commerce</label>
@@ -77,7 +92,7 @@
                                 </select>
                             </div>
                             <div>
-                                <label for="faturamento" class="form-label">Faturamento mensal aproximado</label>
+                                <label for="faturamento" class="form-label">Faturamento mensal aproximado <span class="text-gray-400 text-sm font-normal">(opcional)</span></label>
                                 <select id="faturamento" name="faturamento" class="form-input">
                                 <option value="">Selecione uma faixa</option>
                                 <option value="ate50k">Até R$ 50 mil</option>
@@ -88,8 +103,8 @@
                                 </select>
                             </div>
                             <div>
-                                <label for="interesse" class="form-label">Principal interesse</label>
-                                <select id="interesse" name="interesse" class="form-input" required>
+                                <label for="interesse" class="form-label">Principal interesse <span class="text-gray-400 text-sm font-normal">(opcional)</span></label>
+                                <select id="interesse" name="interesse" class="form-input">
                                 <option value="">Selecione uma opção</option>
                                 <option value="gestao_vendas">Gestão de Vendas</option>
                                 <option value="estoque">Controle de Estoque</option>
@@ -232,7 +247,7 @@
                 <h2 class="text-3xl font-bold mb-6">Pronto para transformar seu e-commerce?</h2>
                 <p class="text-xl mb-8 max-w-2xl mx-auto">Não perca tempo com processos manuais e sistemas
                     desconectados. Cadastre-se no acesso antecipado do ADA ERP e seja um dos primeiros a 
-                    aproveitar os benefícios exclusivos do lançamento.</p><a href="#top"
+                    aproveitar os benefícios exclusivos do lançamento.</p><a href="#form-acesso"
                     class="bg-white hover:bg-gray-100 text-purple-700 font-semibold py-3 px-8 rounded-lg transition-all inline-block">Garantir Acesso Antecipado</a>
             </div>
         </section>
@@ -240,38 +255,53 @@
     
 
     <div id="footer-placeholder"></div>
-
-    
- <script>
-  fetch("./footer.html") // Mantendo caminho relativo
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      return response.text();
-    })
-    .then(data => {
-      console.log("--- Conteúdo recebido do footer.html ---");
-      console.log(data); // <-- Linha adicionada para depuração
-      console.log("--- Fim do conteúdo recebido ---");
-      
-      const placeholder = document.getElementById("footer-placeholder");
-      if (placeholder) {
-        try {
-          placeholder.innerHTML = data;
-          console.log("Footer inserido no placeholder.");
-        } catch (e) {
-          console.error("Erro ao tentar inserir o footer com innerHTML:", e);
-        }
-      } else {
-        console.error("Elemento #footer-placeholder não encontrado.");
-      }
-    })
-    .catch(error => {
-      console.error("Erro ao buscar ou processar o footer:", error);
+<script>
+  fetch('./footer.html')
+    .then(function(r) { return r.text(); })
+    .then(function(data) {
+      var el = document.getElementById('footer-placeholder');
+      if (el) el.innerHTML = data;
     });
 </script>
-
+<script>
+(function() {
+  var items = document.querySelectorAll(
+    'main section:not(:first-child) .grid > div,' +
+    'main section:not(:first-child) .bg-white.p-6,' +
+    'main section:not(:first-child) .bg-gray-50.p-6,' +
+    'main section:not(:first-child) .bg-gray-50.p-8,' +
+    'main section:not(:first-child) .bg-white.p-8'
+  );
+  items.forEach(function(el) { el.classList.add('fade-up'); });
+  document.querySelectorAll('main section:not(:first-child) h2').forEach(function(el) { el.classList.add('fade-up'); });
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(function(el) { observer.observe(el); });
+})();
+</script>
+<script>
+(function() {
+  var form = document.querySelector('form[action*="formspree"]');
+  if (!form) return;
+  var btn = form.querySelector('button[type="submit"]');
+  var originalText = btn ? btn.textContent : '';
+  form.addEventListener('submit', function() {
+    if (!btn) return;
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+    btn.classList.add('opacity-75', 'cursor-not-allowed');
+  });
+  window.addEventListener('pageshow', function() {
+    if (!btn) return;
+    btn.disabled = false;
+    btn.textContent = originalText;
+    btn.classList.remove('opacity-75', 'cursor-not-allowed');
+  });
+})();
+</script>
 
 </body>
 

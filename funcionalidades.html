@@ -4,39 +4,43 @@
 <head>
     <meta charSet="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="./_next/static/css/c1f471f564fa81d3.css" data-precedence="next" />
-    <link rel="preload" as="script" fetchPriority="low" href="./_next/static/chunks/webpack-f5d59c4ffd9ab5dd.js" />
-    <script src="./_next/static/chunks/ebe977ba-e4c408354d110c1b.js" async=""></script>
-    <script src="./_next/static/chunks/411-0ff63d061404826c.js" async=""></script>
-    <script src="./_next/static/chunks/main-app-4d19e322d3c3defe.js" async=""></script>
-    <script src="./_next/static/chunks/612-c23a4a11d48ba472.js" async=""></script>
-    <script src="./_next/static/chunks/app/funcionalidades/page-a802a5fbb683bba7.js" async=""></script>
-    <script src="./_next/static/chunks/app/layout-209b58dfdb658b96.js" async=""></script>
-    <meta name="description" content="ADA ERP - Sistema ERP especializado em e-commerce" />
-    <title>ADA ERP - Sistema ERP para E-commerce</title>
+    <meta name="description" content="Descubra as funcionalidades do ADA ERP: gestão de vendas, controle de estoque, análise de dados, gestão financeira, integrações via API e automação." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://adasys.com.br/funcionalidades" />
+    <meta property="og:title" content="Funcionalidades | ADA ERP" />
+    <meta property="og:description" content="Descubra as funcionalidades do ADA ERP: gestão de vendas, controle de estoque, análise de dados, gestão financeira, integrações via API e automação." />
+    <meta property="og:image" content="https://adasys.com.br/og-image.png" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="ADA ERP" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Funcionalidades | ADA ERP" />
+    <meta name="twitter:description" content="Descubra as funcionalidades do ADA ERP: gestão de vendas, controle de estoque, análise de dados, gestão financeira, integrações via API e automação." />
+    <meta name="twitter:image" content="https://adasys.com.br/og-image.png" />
+    <title>Funcionalidades | ADA ERP</title>
     <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="16x16" />
-    <script src="./_next/static/chunks/polyfills-42372ed130431b0a.js" noModule=""></script>
+    <style>.fade-up{opacity:0;transform:translateY(24px);transition:opacity .7s ease-out,transform .7s ease-out}.fade-up.visible{opacity:1;transform:translateY(0)}</style>
 </head>
 
 <body>
      <div id="header-placeholder"></div>
 <script>
-  fetch('./header.html') // Caminho relativo para garantir consistência
-    .then(response => response.text())
-    .then(data => {
+  fetch('./header.html')
+    .then(function(r) { return r.text(); })
+    .then(function(data) {
       document.getElementById('header-placeholder').innerHTML = data;
-      
-      // Adiciona o script do menu mobile APÓS o header ser carregado
-      const mobileMenuButton = document.getElementById('mobile-menu-button');
-      const mobileMenu = document.getElementById('mobile-menu');
-      if (mobileMenuButton && mobileMenu) {
-        mobileMenuButton.addEventListener('click', () => {
-          mobileMenu.classList.toggle('hidden'); // Alterna a classe 'hidden' para mostrar/esconder
-        });
-      } else {
-        console.error('Botão ou menu mobile não encontrado após carregar o header.');
-      }
+      var btn = document.getElementById('mobile-menu-button');
+      var menu = document.getElementById('mobile-menu');
+      if (btn && menu) btn.addEventListener('click', function() { menu.classList.toggle('hidden'); });
+      var path = window.location.pathname.replace(/\.html$/, '').replace(/\/index$/, '/');
+      if (path !== '/') path = path.replace(/\/$/, '');
+      document.querySelectorAll('#header-placeholder a.font-medium').forEach(function(link) {
+        var href = link.getAttribute('href');
+        if (href === path || (href === '/' && (path === '/' || path === ''))) {
+          link.classList.remove('text-gray-700');
+          link.classList.add('text-purple-700');
+        }
+      });
     });
 </script>
     <main class="flex min-h-screen flex-col items-center">
@@ -334,7 +338,7 @@
                                 </svg><span>Análise de necessidades específicas</span></li>
                         </ul><a
                             class="bg-purple-700 hover:bg-purple-800 text-white font-semibold py-3 px-6 rounded-lg transition-all inline-block"
-                            href="/demo">Agendar Demonstração</a>
+                            href="/acesso-antecipado">Garantir Acesso Antecipado</a>
                     </div>
                     <div class="md:w-1/2">
                         <div
@@ -403,38 +407,33 @@
     
 
     <div id="footer-placeholder"></div>
-
-    
- <script>
-  fetch("./footer.html") // Mantendo caminho relativo
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      return response.text();
-    })
-    .then(data => {
-      console.log("--- Conteúdo recebido do footer.html ---");
-      console.log(data); // <-- Linha adicionada para depuração
-      console.log("--- Fim do conteúdo recebido ---");
-      
-      const placeholder = document.getElementById("footer-placeholder");
-      if (placeholder) {
-        try {
-          placeholder.innerHTML = data;
-          console.log("Footer inserido no placeholder.");
-        } catch (e) {
-          console.error("Erro ao tentar inserir o footer com innerHTML:", e);
-        }
-      } else {
-        console.error("Elemento #footer-placeholder não encontrado.");
-      }
-    })
-    .catch(error => {
-      console.error("Erro ao buscar ou processar o footer:", error);
+<script>
+  fetch('./footer.html')
+    .then(function(r) { return r.text(); })
+    .then(function(data) {
+      var el = document.getElementById('footer-placeholder');
+      if (el) el.innerHTML = data;
     });
 </script>
-
+<script>
+(function() {
+  var items = document.querySelectorAll(
+    'main section:not(:first-child) .grid > div,' +
+    'main section:not(:first-child) .bg-white.p-6,' +
+    'main section:not(:first-child) .bg-gray-50.p-6,' +
+    'main section:not(:first-child) .bg-gray-50.p-8,' +
+    'main section:not(:first-child) .bg-white.p-8'
+  );
+  items.forEach(function(el) { el.classList.add('fade-up'); });
+  document.querySelectorAll('main section:not(:first-child) h2').forEach(function(el) { el.classList.add('fade-up'); });
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(function(el) { observer.observe(el); });
+})();
+</script>
 
 </body>
 

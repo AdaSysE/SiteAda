@@ -4,7 +4,6 @@
 <head>
     <meta charSet="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="./_next/static/css/c1f471f564fa81d3.css" data-precedence="next" />
     
     
@@ -14,38 +13,69 @@
     
     
     
-    <meta name="description" content="ADA ERP - Sistema ERP especializado em e-commerce" />
+    <meta name="description" content="ADA ERP - Sistema ERP completo e especializado para e-commerce. Otimize processos, aumente vendas e tome decisões baseadas em dados." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://adasys.com.br/" />
+    <meta property="og:title" content="ADA ERP - Sistema ERP para E-commerce" />
+    <meta property="og:description" content="Sistema ERP completo e especializado para e-commerce. Otimize processos, aumente vendas e tome decisões baseadas em dados." />
+    <meta property="og:image" content="https://adasys.com.br/og-image.png" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="ADA ERP" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ADA ERP - Sistema ERP para E-commerce" />
+    <meta name="twitter:description" content="Sistema ERP completo e especializado para e-commerce. Otimize processos, aumente vendas e tome decisões baseadas em dados." />
+    <meta name="twitter:image" content="https://adasys.com.br/og-image.png" />
     <title>ADA ERP - Sistema ERP para E-commerce</title>
     <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="16x16" />
+    <style>.fade-up{opacity:0;transform:translateY(24px);transition:opacity .7s ease-out,transform .7s ease-out}.fade-up.visible{opacity:1;transform:translateY(0)}</style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "ADA ERP",
+      "description": "Sistema ERP completo e especializado para e-commerce. Otimize processos, aumente vendas e tome decisões baseadas em dados.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "url": "https://adasys.com.br",
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/PreOrder",
+        "availabilityStarts": "2026-10-01"
+      },
+      "provider": {
+        "@type": "Organization",
+        "name": "ADA ERP",
+        "url": "https://adasys.com.br",
+        "email": "adasyserp@gmail.com",
+        "sameAs": [
+          "https://www.instagram.com/ada.erp/",
+          "https://www.linkedin.com/company/ada-erp"
+        ]
+      }
+    }
+    </script>
     
 </head>
 
 <body>
     <div id="header-placeholder"></div>
 <script>
-  fetch('./header.html') // ou './header.html' se estiver na mesma pasta
-    .then(response => response.text())
-    .then(data => {
-      const placeholder = document.getElementById('header-placeholder');
-      if (placeholder) {
-        placeholder.innerHTML = data;
-        // Adiciona o script do menu mobile APÓS o header ser carregado
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        if (mobileMenuButton && mobileMenu) {
-          mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden'); // Alterna a classe 'hidden' para mostrar/esconder
-            // Opcional: Adicionar lógica para mudar o ícone (hambúrguer/X)
-          });
-        } else {
-          console.error('Botão ou menu mobile não encontrado após carregar o header.');
+  fetch('./header.html')
+    .then(function(r) { return r.text(); })
+    .then(function(data) {
+      document.getElementById('header-placeholder').innerHTML = data;
+      var btn = document.getElementById('mobile-menu-button');
+      var menu = document.getElementById('mobile-menu');
+      if (btn && menu) btn.addEventListener('click', function() { menu.classList.toggle('hidden'); });
+      var path = window.location.pathname.replace(/\.html$/, '').replace(/\/index$/, '/');
+      if (path !== '/') path = path.replace(/\/$/, '');
+      document.querySelectorAll('#header-placeholder a.font-medium').forEach(function(link) {
+        var href = link.getAttribute('href');
+        if (href === path || (href === '/' && (path === '/' || path === ''))) {
+          link.classList.remove('text-gray-700');
+          link.classList.add('text-purple-700');
         }
-      } else {
-        console.error('Elemento #header-placeholder não encontrado.');
-      }
-    })
-    .catch(error => {
-      console.error('Erro ao buscar o header:', error);
+      });
     });
 </script>
 
@@ -53,6 +83,10 @@
         <section class="w-full bg-gradient-to-b from-gray-100 to-white py-20 px-4 flex flex-col items-center">
             <div class="container mx-auto max-w-6xl flex flex-col md:flex-row items-center justify-between">
                 <div class="md:w-1/2 mb-10 md:mb-0">
+                    <span class="inline-flex items-center gap-1.5 bg-purple-100 text-purple-700 text-sm font-medium px-3 py-1.5 rounded-full mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                        Lançamento previsto: Outubro de 2026
+                    </span>
                     <h1 class="text-4xl md:text-5xl font-bold mb-4">Transforme sua <span class="text-purple-700">Gestão
                             Empresarial</span> com <br> ADA ERP</h1>
                     <p class="text-lg text-gray-700 mb-8">Sistema ERP completo e especializado para e-commerce. Otimize
@@ -67,8 +101,8 @@
                     <div class="relative w-64 h-64 md:w-80 md:h-80">
                         <div class="absolute inset-0 bg-purple-600 rounded-full opacity-20 blur-2xl"></div>
                         <div class="relative w-full h-full flex items-center justify-center"><img alt="ADA ERP Logo"
-                                loading="lazy" width="400" height="400" decoding="async" data-nimg="1"
-                                class="drop-shadow-lg" style="color:transparent" src="./logo-ada.svg" /></div>
+                                loading="lazy" width="400" height="400" decoding="async"
+                                class="drop-shadow-lg" src="./logo-ada.svg" /></div>
                     </div>
                 </div>
             </div>
@@ -184,19 +218,33 @@
                             <div class="absolute inset-0 bg-blue-100 rounded-xl opacity-50 blur-xl transform -rotate-6">
                             </div>
                             <div class="relative bg-white p-6 rounded-xl shadow-lg">
-                                <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none"
-                                        viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
-                                    </svg></div>
-                                <h3 class="text-xl font-semibold mb-2">Mais Eficiência nas Vendas</h3>
-                                <p class="text-gray-600 mb-4">Estudos mostram que empresas que implementam ERPs experimentam melhorias significativas na produtividade e eficiência operacional. Com o ADA ERP, você estará pronto para alcançar esses resultados.</p>
-                                <div class="w-full bg-gray-200 rounded-full h-2.5">
-                                    <div class="bg-blue-600 h-2.5 rounded-full w-[85%]"></div>
+                                <h3 class="text-xl font-semibold mb-4">Gestão Centralizada de Canais</h3>
+                                <div class="space-y-3">
+                                    <div class="flex items-center justify-between p-3 bg-orange-50 rounded-lg">
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-2 h-2 rounded-full bg-orange-400"></div>
+                                            <span class="text-sm font-medium text-gray-700">Mercado Livre</span>
+                                        </div>
+                                        <span class="text-xs text-green-600 font-semibold bg-green-100 px-2 py-1 rounded-full">● Ativo</span>
+                                    </div>
+                                    <div class="flex items-center justify-between p-3 bg-red-50 rounded-lg">
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-2 h-2 rounded-full bg-red-400"></div>
+                                            <span class="text-sm font-medium text-gray-700">Shopee</span>
+                                        </div>
+                                        <span class="text-xs text-green-600 font-semibold bg-green-100 px-2 py-1 rounded-full">● Ativo</span>
+                                    </div>
+                                    <div class="flex items-center justify-between p-3 bg-blue-50 rounded-lg">
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-2 h-2 rounded-full bg-blue-400"></div>
+                                            <span class="text-sm font-medium text-gray-700">Amazon</span>
+                                        </div>
+                                        <span class="text-xs text-green-600 font-semibold bg-green-100 px-2 py-1 rounded-full">● Ativo</span>
+                                    </div>
+                                    <div class="p-3 bg-purple-50 rounded-lg text-center border border-purple-100">
+                                        <span class="text-purple-700 font-semibold text-sm">+ Integrações via API</span>
+                                    </div>
                                 </div>
-                                <div class="flex justify-between mt-1 text-sm text-gray-500">
-                                    <span>Antes</span><span>Depois</span></div>
                             </div>
                         </div>
                     </div>
@@ -239,12 +287,21 @@
                                             d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                                     </svg></div>
                                 <h3 class="text-xl font-semibold mb-2">Menos Trabalho Manual</h3>
-                                <p class="text-gray-600 mb-4">A automação de processos pode reduzir o tempo gasto em tarefas manuais em até 70%. O ADA ERP ajuda você a liberar tempo para focar no crescimento do seu negócio.</p>
-                                <div class="w-full bg-gray-200 rounded-full h-2.5">
-                                    <div class="bg-yellow-500 h-2.5 rounded-full w-[70%]"></div>
-                                </div>
-                                <div class="flex justify-between mt-1 text-sm text-gray-500">
-                                    <span>Manual</span><span>Automatizado</span></div>
+                                <p class="text-gray-600 mb-3">Tarefas repetitivas que o ADA faz por você, automaticamente:</p>
+                                <ul class="space-y-2">
+                                    <li class="flex items-center justify-between text-sm">
+                                        <span class="text-gray-700">Emissão de nota fiscal</span>
+                                        <span class="bg-green-100 text-green-700 text-xs font-medium px-2 py-0.5 rounded-full">Automático</span>
+                                    </li>
+                                    <li class="flex items-center justify-between text-sm">
+                                        <span class="text-gray-700">Sincronização de pedidos</span>
+                                        <span class="bg-green-100 text-green-700 text-xs font-medium px-2 py-0.5 rounded-full">Automático</span>
+                                    </li>
+                                    <li class="flex items-center justify-between text-sm">
+                                        <span class="text-gray-700">Atualização de preço e estoque</span>
+                                        <span class="bg-green-100 text-green-700 text-xs font-medium px-2 py-0.5 rounded-full">Automático</span>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -254,7 +311,7 @@
         <section class="w-full py-16 px-4 bg-white">
             <div class="container mx-auto max-w-6xl text-center">
                 <h2 class="text-3xl font-bold mb-4">Pronto para Transformar sua Gestão?</h2>
-                <p class="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">Junte-se a centenas de empresas que já estão otimizando seus processos e impulsionando suas vendas com o ADA ERP.</p>
+                <p class="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">Junte-se às empresas que estão se preparando para otimizar seus processos e impulsionar suas vendas com o ADA ERP.</p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4"><a
                         class="bg-purple-700 hover:bg-purple-800 text-white font-semibold py-3 px-6 rounded-lg transition-all"
                         href="/acesso-antecipado">Acesso Antecipado</a><a
@@ -265,19 +322,31 @@
     </main>
     <div id="footer-placeholder"></div>
 <script>
-  fetch('./footer.html') // ou './footer.html' se estiver na mesma pasta
-    .then(response => response.text())
-    .then(data => {
-      const placeholder = document.getElementById('footer-placeholder');
-      if (placeholder) {
-        placeholder.innerHTML = data;
-      } else {
-        console.error('Elemento #footer-placeholder não encontrado.');
-      }
-    })
-    .catch(error => {
-      console.error('Erro ao buscar o footer:', error);
+  fetch('./footer.html')
+    .then(function(r) { return r.text(); })
+    .then(function(data) {
+      var el = document.getElementById('footer-placeholder');
+      if (el) el.innerHTML = data;
     });
+</script>
+<script>
+(function() {
+  var items = document.querySelectorAll(
+    'main section:not(:first-child) .grid > div,' +
+    'main section:not(:first-child) .bg-white.p-6,' +
+    'main section:not(:first-child) .bg-gray-50.p-6,' +
+    'main section:not(:first-child) .bg-gray-50.p-8,' +
+    'main section:not(:first-child) .bg-white.p-8'
+  );
+  items.forEach(function(el) { el.classList.add('fade-up'); });
+  document.querySelectorAll('main section:not(:first-child) h2').forEach(function(el) { el.classList.add('fade-up'); });
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(function(el) { observer.observe(el); });
+})();
 </script>
 
 </body>

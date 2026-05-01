@@ -4,7 +4,6 @@
 <head>
     <meta charSet="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="./_next/static/css/c1f471f564fa81d3.css" data-precedence="next" />
     <link rel="preload" as="script" fetchPriority="low" href="./_next/static/chunks/webpack-f5d59c4ffd9ab5dd.js" />
     <script src="./_next/static/chunks/ebe977ba-e4c408354d110c1b.js" async=""></script>
@@ -15,19 +14,30 @@
     <script src="./_next/static/chunks/app/page-d3925a231e7cad96.js" async=""></script>
     <script src="./_next/static/chunks/app/layout-209b58dfdb658b96.js" async=""></script>
     <meta name="robots" content="noindex" />
-    <meta name="description" content="ADA ERP - Sistema ERP especializado em e-commerce" />
-    <title>ADA ERP - Sistema ERP para E-commerce</title>
-    <title>404: This page could not be found.</title>
+    <meta name="description" content="Página não encontrada - ADA ERP" />
+    <title>Página não encontrada | ADA ERP</title>
     <script src="./_next/static/chunks/polyfills-42372ed130431b0a.js" noModule=""></script>
 </head>
 
 <body>
      <div id="header-placeholder"></div>
 <script>
-  fetch('/header.html') // ou './header.html' se estiver na mesma pasta
-    .then(response => response.text())
-    .then(data => {
+  fetch('./header.html')
+    .then(function(r) { return r.text(); })
+    .then(function(data) {
       document.getElementById('header-placeholder').innerHTML = data;
+      var btn = document.getElementById('mobile-menu-button');
+      var menu = document.getElementById('mobile-menu');
+      if (btn && menu) btn.addEventListener('click', function() { menu.classList.toggle('hidden'); });
+      var path = window.location.pathname.replace(/\.html$/, '').replace(/\/index$/, '/');
+      if (path !== '/') path = path.replace(/\/$/, '');
+      document.querySelectorAll('#header-placeholder a.font-medium').forEach(function(link) {
+        var href = link.getAttribute('href');
+        if (href === path || (href === '/' && (path === '/' || path === ''))) {
+          link.classList.remove('text-gray-700');
+          link.classList.add('text-purple-700');
+        }
+      });
     });
 </script>
     <div
@@ -112,8 +122,7 @@
                 <div>
                     <h3 class="text-xl font-bold mb-4">Recursos</h3>
                     <ul class="space-y-2">
-                        <li><a class="text-gray-400 hover:text-white transition-colors" href="/demo">Solicitar
-                                Demonstração</a></li>
+                        <li><a class="text-gray-400 hover:text-white transition-colors" href="/acesso-antecipado">Acesso Antecipado</a></li>
                         <li><a class="text-gray-400 hover:text-white transition-colors" href="/blog">Artigos e
                                 Tutoriais</a></li>
                         <li><a class="text-gray-400 hover:text-white transition-colors" href="#">Webinars</a></li>
@@ -130,7 +139,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
                                 </path>
-                            </svg><span class="text-gray-400">contato@adasys.com.br</span></li>
+                            </svg><span class="text-gray-400">adasyserp@gmail.com</span></li>
                         <li class="flex items-start"><svg xmlns="http://www.w3.org/2000/svg"
                                 class="h-5 w-5 text-gray-400 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor">
@@ -153,7 +162,7 @@
             </div>
             <div class="border-t border-gray-800 mt-12 pt-8">
                 <div class="flex flex-col md:flex-row justify-between items-center">
-                    <p class="text-gray-400 text-sm">© <!-- -->2025<!-- --> ADA ERP. Todos os direitos reservados.</p>
+                    <p class="text-gray-400 text-sm">© <!-- -->2026<!-- --> ADA ERP. Todos os direitos reservados.</p>
                     <div class="flex space-x-4 mt-4 md:mt-0"><a
                             class="text-gray-400 hover:text-white text-sm transition-colors" href="#">Termos de
                             Uso</a><a class="text-gray-400 hover:text-white text-sm transition-colors" href="#">Política
@@ -183,15 +192,10 @@
       return response.text();
     })
     .then(data => {
-      console.log("--- Conteúdo recebido do footer.html ---");
-      console.log(data); // <-- Linha adicionada para depuração
-      console.log("--- Fim do conteúdo recebido ---");
-      
       const placeholder = document.getElementById("footer-placeholder");
       if (placeholder) {
         try {
           placeholder.innerHTML = data;
-          console.log("Footer inserido no placeholder.");
         } catch (e) {
           console.error("Erro ao tentar inserir o footer com innerHTML:", e);
         }
