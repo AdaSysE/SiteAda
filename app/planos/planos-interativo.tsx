@@ -1,7 +1,10 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, type FormEvent } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+
+const FORM_ENDPOINT = "https://formsubmit.co/ajax/adasyserp@gmail.com";
 
 type Plan = { name: string; fit: string; popular?: boolean; items: string[] };
 
@@ -32,7 +35,9 @@ const steps = [
 ];
 
 export default function PlanosInterativo() {
+  const router = useRouter();
   const [selectedPlan, setSelectedPlan] = useState("");
+  const [status, setStatus] = useState<"idle" | "sending" | "error">("idle");
   const formRef = useRef<HTMLDivElement>(null);
 
   function scrollToForm() {
@@ -42,6 +47,27 @@ export default function PlanosInterativo() {
   function handleSelectPlan(name: string) {
     setSelectedPlan(name);
     scrollToForm();
+  }
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setStatus("sending");
+    const data = Object.fromEntries(new FormData(e.currentTarget).entries());
+    try {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(data),
+      });
+      const json = await res.json();
+      if (res.ok && json.success !== "false") {
+        router.push("/obrigado");
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   }
 
   return (
@@ -120,7 +146,7 @@ export default function PlanosInterativo() {
         <span className="section-label">Fale com a ADA</span>
         <h2>Solicitar apresentação da ADA</h2>
         <p>Conte um pouco sobre a sua operação. Nossa equipe entra em contato para apresentar a ADA e montar uma proposta de plano e implantação sob medida.</p>
-        <form action="https://formsubmit.co/adasyserp@gmail.com" method="POST">
+        <form onSubmit={handleSubmit}>
           <div className="form-row">
             <label>Nome<input name="nome" placeholder="Seu nome" required /></label>
             <label>Empresa<input name="empresa" placeholder="Nome da empresa" /></label>
@@ -142,12 +168,16 @@ export default function PlanosInterativo() {
             <span>Mensagem <span className="optional">(opcional)</span></span>
             <textarea name="mensagem" rows={3} placeholder="Conte mais, se quiser" />
           </label>
-          <input type="hidden" name="_next" value="https://adasys.com.br/obrigado" />
-          <input type="hidden" name="_cc" value="lucas.amim@hotmail.com" />
           <input type="hidden" name="_subject" value="Novo interesse em plano pelo site ADA" />
+          <input type="hidden" name="_cc" value="lucas.amim@hotmail.com" />
           <input type="hidden" name="_template" value="table" />
           <input type="hidden" name="_captcha" value="false" />
-          <button type="submit">Enviar mensagem <span>→</span></button>
+          <button type="submit" disabled={status === "sending"}>
+            {status === "sending" ? "Enviando..." : "Enviar mensagem"} <span>→</span>
+          </button>
+          {status === "error" && (
+            <p className="form-error">Não foi possível enviar agora. Tente novamente ou fale pelo WhatsApp.</p>
+          )}
           <p className="form-disclaimer">
             Ao enviar, você concorda em receber o contato da equipe ADA. Seus dados serão utilizados somente para dar continuidade ao seu atendimento. Leia nossa{" "}
             <Link href="/privacidade">Política de Privacidade</Link>.
