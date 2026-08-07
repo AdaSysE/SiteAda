@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import Link from "next/link";
 
 type Plan = { name: string; fit: string; popular?: boolean; items: string[] };
 
@@ -119,31 +120,37 @@ export default function PlanosInterativo() {
         <span className="section-label">Fale com a ADA</span>
         <h2>Solicitar apresentação da ADA</h2>
         <p>Conte um pouco sobre a sua operação. Nossa equipe entra em contato para apresentar a ADA e montar uma proposta de plano e implantação sob medida.</p>
-        <form>
+        <form action="https://formsubmit.co/adasyserp@gmail.com" method="POST">
           <div className="form-row">
-            <label>Nome<input placeholder="Seu nome" /></label>
-            <label>Empresa<input placeholder="Nome da empresa" /></label>
+            <label>Nome<input name="nome" placeholder="Seu nome" required /></label>
+            <label>Empresa<input name="empresa" placeholder="Nome da empresa" /></label>
           </div>
           <div className="form-row">
-            <label>E-mail corporativo<input type="email" placeholder="voce@empresa.com.br" /></label>
-            <label>WhatsApp<input placeholder="(00) 00000-0000" /></label>
+            <label>WhatsApp<input name="whatsapp" placeholder="(00) 00000-0000" /></label>
+            <label>E-mail<input name="email" type="email" placeholder="voce@email.com" required /></label>
           </div>
-          <div className="form-row">
-            <label>Pedidos por mês (aproximado)<input placeholder="Ex.: 1.500" /></label>
-            <label>Quantidade de usuários<input placeholder="Ex.: 8" /></label>
-          </div>
-          <label>Sistemas ou marketplaces utilizados<input placeholder="Ex.: Mercado Livre, Shopee, Bling" /></label>
           <label>Plano de interesse
-            <select value={selectedPlan} onChange={(e) => setSelectedPlan(e.target.value)}>
+            <select name="plano" value={selectedPlan} onChange={(e) => setSelectedPlan(e.target.value)} required>
               <option value="" disabled>Selecione um plano</option>
-              <option value="ADA Básico">ADA Básico</option>
-              <option value="ADA Profissional">ADA Profissional</option>
-              <option value="ADA Avançado">ADA Avançado</option>
-              <option value="Ainda não sei">Ainda não sei / preciso de orientação</option>
+              <option>ADA Básico</option>
+              <option>ADA Profissional</option>
+              <option>ADA Avançado</option>
+              <option>Ainda não sei / preciso de orientação</option>
             </select>
           </label>
-          <label>Conte um pouco sobre a sua operação<textarea rows={5} placeholder="Fluxos, integrações, particularidades do seu negócio" /></label>
-          <button type="button">Solicitar apresentação da ADA</button>
+          <label>Mensagem <span className="optional">(opcional)</span>
+            <textarea name="mensagem" rows={3} placeholder="Conte mais, se quiser" />
+          </label>
+          <input type="hidden" name="_next" value="https://adasys.com.br/obrigado" />
+          <input type="hidden" name="_cc" value="lucas.amim@hotmail.com" />
+          <input type="hidden" name="_subject" value="Novo interesse em plano pelo site ADA" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <button type="submit">Enviar mensagem <span>→</span></button>
+          <p className="form-disclaimer">
+            Ao enviar, você concorda em receber o contato da equipe ADA. Seus dados serão utilizados somente para dar continuidade ao seu atendimento. Leia nossa{" "}
+            <Link href="/privacidade">Política de Privacidade</Link>.
+          </p>
         </form>
       </section>
     </>
