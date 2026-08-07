@@ -3,6 +3,7 @@
 import { useRef, useState, type FormEvent } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { formatWhatsapp } from "../format-whatsapp";
 
 const FORM_ENDPOINT = "https://formsubmit.co/ajax/adasyserp@gmail.com";
 
@@ -38,6 +39,7 @@ export default function PlanosInterativo() {
   const router = useRouter();
   const [selectedPlan, setSelectedPlan] = useState("");
   const [status, setStatus] = useState<"idle" | "sending" | "error">("idle");
+  const [whatsapp, setWhatsapp] = useState("");
   const formRef = useRef<HTMLDivElement>(null);
 
   function scrollToForm() {
@@ -152,7 +154,7 @@ export default function PlanosInterativo() {
             <label>Empresa<input name="empresa" placeholder="Nome da empresa" /></label>
           </div>
           <div className="form-row">
-            <label>WhatsApp<input name="whatsapp" placeholder="(00) 00000-0000" /></label>
+            <label>WhatsApp<input name="whatsapp" placeholder="(00) 00000-0000" inputMode="numeric" value={whatsapp} onChange={(e) => setWhatsapp(formatWhatsapp(e.target.value))} /></label>
             <label>E-mail<input name="email" type="email" placeholder="voce@email.com" required /></label>
           </div>
           <label>Plano de interesse
