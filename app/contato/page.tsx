@@ -40,7 +40,8 @@ export default function Contato() {
                 <option>Outro assunto</option>
               </select>
             </label>
-            <label>Mensagem <span className="optional">(opcional)</span>
+            <label>
+              <span>Mensagem <span className="optional">(opcional)</span></span>
               <textarea name="mensagem" rows={3} placeholder="Conte mais, se quiser" />
             </label>
             <input type="hidden" name="_next" value="https://adasys.com.br/obrigado" />
