@@ -4,8 +4,7 @@ import { useState, type FormEvent } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { formatWhatsapp } from "../format-whatsapp";
-
-const FORM_ENDPOINT = "https://formsubmit.co/ajax/adasyserp@gmail.com";
+import { WEB3FORMS_ACCESS_KEY, WEB3FORMS_ENDPOINT } from "../web3forms";
 
 export default function ContatoForm() {
   const router = useRouter();
@@ -17,13 +16,19 @@ export default function ContatoForm() {
     setStatus("sending");
     const data = Object.fromEntries(new FormData(e.currentTarget).entries());
     try {
-      const res = await fetch(FORM_ENDPOINT, {
+      const res = await fetch(WEB3FORMS_ENDPOINT, {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          ...data,
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: "Novo contato pelo site ADA",
+          from_name: "Site ADA",
+          replyto: data.email,
+        }),
       });
       const json = await res.json();
-      if (res.ok && json.success !== "false") {
+      if (res.ok && json.success) {
         router.push("/obrigado");
       } else {
         setStatus("error");
@@ -61,10 +66,6 @@ export default function ContatoForm() {
           <span>Mensagem <span className="optional">(opcional)</span></span>
           <textarea name="mensagem" rows={3} placeholder="Conte mais, se quiser" />
         </label>
-        <input type="hidden" name="_subject" value="Novo contato pelo site ADA" />
-        <input type="hidden" name="_cc" value="lucas.amim@hotmail.com" />
-        <input type="hidden" name="_template" value="table" />
-        <input type="hidden" name="_captcha" value="false" />
         <button type="submit" disabled={status === "sending"}>
           {status === "sending" ? "Enviando..." : "Enviar mensagem"} <span>→</span>
         </button>
