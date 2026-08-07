@@ -1,0 +1,246 @@
+import type { ReactNode } from "react";
+import Image from "next/image";
+import Link from "next/link";
+
+export function Header() {
+  return (
+    <header className="header">
+      <Link className="brand-logo" href="/" aria-label="ADA ERP - Início">
+        <Image className="brand-mark" src="/brand/simbolo-cor.png" alt="" width={471} height={471} priority />
+        <Image className="brand-word" src="/brand/tipografia-cor.png" alt="ADA" width={669} height={158} priority />
+      </Link>
+      <nav>
+        <Link href="/">Home</Link>
+        <Link href="/produto">Produto</Link>
+        <Link href="/sobre">Sobre a Ada</Link>
+        <Link href="/planos">Planos</Link>
+        <Link href="/contato">Contato</Link>
+      </nav>
+      <Link className="header-cta" href="/contato">Garantir Desconto <span>→</span></Link>
+    </header>
+  );
+}
+
+export function Footer() {
+  return (
+    <footer>
+      <Link className="footer-logo" href="/" aria-label="ADA ERP - Início">
+        <Image src="/brand/tipografia-branca.png" alt="ADA" width={669} height={158} />
+      </Link>
+      <p>ERP feito para e-commerce, desenvolvido para otimizar processos e impulsionar resultados.</p>
+      <div>
+        <Link href="/produto">Produto</Link>
+        <Link href="/sobre">Sobre a Ada</Link>
+        <Link href="/planos">Planos</Link>
+        <Link href="/contato">Contato</Link>
+        <Link href="/privacidade">Política de Privacidade</Link>
+        <Link href="/termos-de-uso">Termos de Uso</Link>
+      </div>
+      <small>© 2026 ADA ERP. Todos os direitos reservados.</small>
+    </footer>
+  );
+}
+
+export function CTA() {
+  return (
+    <section className="cta">
+      <Image className="tri-watermark" src="/brand/triangulo-roxo.png" alt="" width={710} height={398} style={{ width: 260, height: "auto", right: -40, bottom: -60, top: "auto" }} />
+      <div className="cta-info">
+        <span>Condições especiais no lançamento</span>
+        <h2>Quer ver a ADA funcionando na sua operação?</h2>
+        <p>Entre na Lista de Condição Especial e receba 25% de desconto no setup no lançamento.</p>
+      </div>
+      <div className="cta-action">
+        <Link href="/contato">Garantir Desconto <span>→</span></Link>
+        <small>Sem compromisso. Nossa equipe entra em contato.</small>
+      </div>
+    </section>
+  );
+}
+
+export function ProductVisual({ type = "dashboard" }: { type?: string }) {
+  if (type === "invoice") {
+    return (
+      <div className="ui-window">
+        <div className="ui-top"><i /><i /><i /><span>Faturamento</span></div>
+        <div className="invoice-card">
+          <div className="doc-icon">NF</div>
+          <div><small>Nota fiscal eletrônica</small><b>NF-e 000.018.425</b><span className="approved">Autorizada</span></div>
+        </div>
+        <div className="ui-lines"><span /><span /><span /><span /></div>
+        <button className="fake-button">Visualizar DANFE</button>
+      </div>
+    );
+  }
+  if (type === "launch") {
+    return (
+      <div className="ui-window">
+        <div className="ui-top"><i /><i /><i /><span>Lista de Condição Especial</span></div>
+        <div className="metric-row">
+          <div><small>Lançamento previsto</small><b>Dez/2026</b></div>
+          <div><small>Desconto no setup</small><b>25% OFF</b></div>
+        </div>
+        <div className="ui-lines"><span /><span /><span /></div>
+        <button className="fake-button">Garantir minha vaga →</button>
+      </div>
+    );
+  }
+  if (type === "orders" || type === "stock") {
+    const rows = type === "stock"
+      ? [["Camiseta Essential", "128 un.", "Disponível"], ["Tênis Urban", "64 un.", "Disponível"], ["Mochila Move", "18 un.", "Estoque baixo"]]
+      : [["ADA-1028", "Mercado Livre", "Faturado"], ["ADA-1029", "Shopee", "Em separação"], ["ADA-1030", "Amazon", "Novo pedido"]];
+    return (
+      <div className="ui-window">
+        <div className="ui-top"><i /><i /><i /><span>{type === "stock" ? "Posição de estoque" : "Pedidos de venda"}</span></div>
+        <div className="table-head"><span>{type === "stock" ? "Produto" : "Número"}</span><span>{type === "stock" ? "Saldo" : "Canal"}</span><span>Status</span></div>
+        {rows.map((r, i) => (
+          <div className="table-row" key={i}><b>{r[0]}</b><span>{r[1]}</span><em>{r[2]}</em></div>
+        ))}
+      </div>
+    );
+  }
+  return (
+    <div className="ui-window">
+      <div className="ui-top"><i /><i /><i /><span>Visão gerencial</span></div>
+      <div className="metric-row">
+        <div><small>Faturamento</small><b>R$ 284.920</b><em>+12,8%</em></div>
+        <div><small>Pedidos</small><b>1.248</b><em>+8,4%</em></div>
+      </div>
+      <div className="chart">
+        <span style={{ height: "34%" }} /><span style={{ height: "48%" }} /><span style={{ height: "42%" }} /><span style={{ height: "65%" }} /><span style={{ height: "58%" }} /><span style={{ height: "82%" }} /><span style={{ height: "74%" }} />
+      </div>
+      <div className="chart-labels"><span>Seg</span><span>Ter</span><span>Qua</span><span>Qui</span><span>Sex</span><span>Sáb</span><span>Dom</span></div>
+    </div>
+  );
+}
+
+export function AboutHero({ label, title, highlight, text }: { label: string; title: string; highlight?: string; text: string }) {
+  return (
+    <section className="about-hero">
+      <div className="about-hero-bg">
+        <Image className="tri-1" src="/brand/triangulo-branco.png" alt="" width={710} height={398} />
+      </div>
+      <div className="about-hero-copy">
+        <span className="eyebrow"><i />{label}</span>
+        <h1>{title} {highlight && <strong>{highlight}</strong>}</h1>
+        <p>{text}</p>
+      </div>
+    </section>
+  );
+}
+
+function GrowthVisual() {
+  return (
+    <div className="growth-visual">
+      <Image className="gv-tri gv-tri-1" src="/brand/triangulo-branco.png" alt="" width={710} height={398} />
+      <Image className="gv-tri gv-tri-2" src="/brand/triangulo-branco.png" alt="" width={710} height={398} />
+      <Image className="gv-tri gv-tri-3" src="/brand/triangulo-branco.png" alt="" width={710} height={398} />
+      <svg className="gv-lines" viewBox="0 0 760 540" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polyline points="55,438 315,303 558,166" stroke="#ffffff" strokeOpacity=".3" strokeWidth="1.5" strokeDasharray="2 7" strokeLinecap="round" />
+        <circle cx="185" cy="370" r="2.5" fill="#fff" opacity=".5" />
+        <circle cx="437" cy="235" r="2.5" fill="#fff" opacity=".5" />
+        <circle cx="150" cy="90" r="1.6" fill="#fff" opacity=".35" />
+        <circle cx="640" cy="360" r="1.6" fill="#fff" opacity=".3" />
+        <circle cx="70" cy="180" r="1.6" fill="#fff" opacity=".3" />
+        <circle cx="55" cy="438" r="8" fill="#fff" opacity=".12" />
+        <circle cx="55" cy="438" r="3" fill="#fff" opacity=".85" />
+        <circle cx="315" cy="303" r="8" fill="#fff" opacity=".12" />
+        <circle cx="315" cy="303" r="3" fill="#fff" opacity=".85" />
+        <circle cx="558" cy="166" r="9" fill="#fff" opacity=".14" />
+        <circle cx="558" cy="166" r="3.4" fill="#fff" opacity=".9" />
+      </svg>
+    </div>
+  );
+}
+
+export function PlanosHero({ label, title, highlight, text, cta, ctaHref }: { label: string; title: string; highlight?: string; text: string; cta: string; ctaHref: string }) {
+  return (
+    <section className="planos-hero">
+      <div className="planos-hero-bg">
+        <GrowthVisual />
+      </div>
+      <div className="planos-hero-copy">
+        <span className="eyebrow"><i />{label}</span>
+        <h1>
+          {title}
+          <br />
+          {highlight && (
+            <strong>
+              {highlight.split("\n").map((line, i, arr) => (
+                <span key={i}>
+                  {line}
+                  {i < arr.length - 1 && <br />}
+                </span>
+              ))}
+            </strong>
+          )}
+        </h1>
+        <p>{text}</p>
+        <Link className="primary" href={ctaHref}>{cta} <span>→</span></Link>
+      </div>
+    </section>
+  );
+}
+
+export function PageHero({ label, title, highlight, text }: { label: string; title: string; highlight?: string; text: string }) {
+  return (
+    <section className="page-hero">
+      <Image className="tri-watermark" src="/brand/triangulo-roxo.png" alt="" width={710} height={398} style={{ width: 360, height: "auto", left: "50%", top: -40, transform: "translateX(-50%)" }} />
+      <span className="eyebrow"><i />{label}</span>
+      <h1>{title} {highlight && <strong>{highlight}</strong>}</h1>
+      <p>{text}</p>
+    </section>
+  );
+}
+
+export function ProductHero({ label, title, highlight, text }: { label: string; title: string; highlight?: string; text: string }) {
+  return (
+    <section className="product-hero">
+      <Image className="tri-watermark" src="/brand/triangulo-roxo.png" alt="" width={710} height={398} style={{ width: 300, height: "auto", right: -50, top: -30 }} />
+      <div className="product-hero-copy">
+        <span className="eyebrow"><i />{label}</span>
+        <h1>{title} {highlight && <strong>{highlight}</strong>}</h1>
+        <p>{text}</p>
+        <div className="hero-actions">
+          <Link className="primary" href="/planos">Ver planos e preços <span>→</span></Link>
+          <Link className="secondary" href="/contato">Falar com a equipe</Link>
+        </div>
+        <div className="hero-proof">
+          <span>✓ Todos os módulos incluídos</span>
+          <span>✓ API incluída em todos os planos</span>
+          <span>✓ Implantação acompanhada</span>
+        </div>
+      </div>
+      <div className="product-hero-visual">
+        <div className="stack-card stack-back"><ProductVisual type="invoice" /></div>
+        <div className="stack-card stack-front"><ProductVisual type="dashboard" /></div>
+      </div>
+    </section>
+  );
+}
+
+const ADA_WHATSAPP_NUMBER = "5511968283887";
+
+export function ContactHero({ label, title, highlight, text, children }: { label: string; title: string; highlight?: string; text: string; children: ReactNode }) {
+  return (
+    <section className="contact-hero">
+      <Image className="tri-watermark" src="/brand/triangulo-roxo.png" alt="" width={710} height={398} style={{ width: 460, height: "auto", right: -140, bottom: -80, top: "auto" }} />
+      <div className="contact-hero-copy">
+        <span className="eyebrow"><i />{label}</span>
+        <h1>{title} {highlight && <strong>{highlight}</strong>}</h1>
+        <p>{text}</p>
+        <div className="hero-proof">
+          <span>✓ Atendimento via WhatsApp</span>
+          <span>✓ Apresentação personalizada da ADA</span>
+          <span>✓ Proposta de acordo com a sua estrutura</span>
+        </div>
+        <a className="whatsapp-link" href={`https://wa.me/${ADA_WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer">
+          Prefere falar diretamente? <strong>Chame a ADA no WhatsApp →</strong>
+        </a>
+      </div>
+      <div className="contact-hero-form">
+        {children}
+      </div>
+    </section>
+  );
+}
