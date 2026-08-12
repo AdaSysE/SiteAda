@@ -2,9 +2,26 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header, PageHero } from "../components";
 
+const title = "Termos de Uso";
+const description = "Regras e condições para o uso do site e dos serviços oferecidos pela ADA.";
+
 export const metadata: Metadata = {
-  title: "Termos de Uso",
-  description: "Regras e condições para o uso do site e dos serviços oferecidos pela ADA.",
+  title,
+  description,
+  alternates: { canonical: "/termos-de-uso" },
+  openGraph: {
+    type: "website",
+    url: "/termos-de-uso",
+    title: `${title} | ADA ERP`,
+    description,
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "ADA ERP" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${title} | ADA ERP`,
+    description,
+    images: ["/og-image.png"],
+  },
 };
 
 export default function TermosDeUso() {

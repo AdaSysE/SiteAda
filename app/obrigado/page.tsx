@@ -5,6 +5,7 @@ import { Footer, Header } from "../components";
 export const metadata: Metadata = {
   title: "Obrigado pelo contato",
   description: "Mensagem enviada com sucesso. A equipe ADA entrará em contato em breve.",
+  alternates: { canonical: "/obrigado" },
   robots: { index: false, follow: true },
 };
 

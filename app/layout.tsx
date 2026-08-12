@@ -46,6 +46,22 @@ export const viewport: Viewport = {
   themeColor: "#5B499E",
 };
 
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "ADA ERP",
+  url: "https://adasys.com.br",
+  logo: "https://adasys.com.br/brand/simbolo-cor.png",
+  description: siteDescription,
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "customer service",
+    telephone: "+55-11-96828-3887",
+    areaServed: "BR",
+    availableLanguage: "pt-BR",
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -54,6 +70,10 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={`${montserrat.variable} ${inter.variable}`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
         <PromoBar />
         {children}
       </body>

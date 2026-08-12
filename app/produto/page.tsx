@@ -3,9 +3,26 @@ import Image from "next/image";
 import Link from "next/link";
 import { CTA, Footer, Header, ProductHero, ProductVisual } from "../components";
 
+const title = "Produto";
+const description = "Comercial, estoque, faturamento e NF-e, financeiro, compras e gestão: conheça os módulos da ADA.";
+
 export const metadata: Metadata = {
-  title: "Produto",
-  description: "Comercial, estoque, faturamento e NF-e, financeiro, compras e gestão: conheça os módulos da ADA.",
+  title,
+  description,
+  alternates: { canonical: "/produto" },
+  openGraph: {
+    type: "website",
+    url: "/produto",
+    title: `${title} | ADA ERP`,
+    description,
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "ADA ERP" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${title} | ADA ERP`,
+    description,
+    images: ["/og-image.png"],
+  },
 };
 
 type Mod = [string, string, string, string[], string];

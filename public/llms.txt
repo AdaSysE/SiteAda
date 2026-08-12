@@ -1,0 +1,19 @@
+# ADA ERP
+
+> ERP especializado em e-commerce, com módulos de Comercial, Estoque, Compras, Faturamento e NF-e, Financeiro e Gestão conectados em um único fluxo de operação. Lançamento previsto para dezembro de 2026.
+
+A ADA é desenvolvida a partir de mais de 13 anos de experiência em operações de e-commerce. Atende negócios que vendem em múltiplos canais e marketplaces e precisam de pedidos, estoque, faturamento e financeiro conectados, com API incluída em todos os planos.
+
+## Páginas
+
+- [Produto](https://adasys.com.br/produto): Módulos do sistema — Comercial, Estoque, Faturamento e NF-e, Financeiro, Compras, Gestão e relatórios.
+- [Planos](https://adasys.com.br/planos): Planos ADA Básico, Profissional e Avançado, proposta personalizada por operação, e perguntas frequentes sobre preços.
+- [Sobre a ADA](https://adasys.com.br/sobre): História e origem da ADA no mercado de e-commerce.
+- [Contato](https://adasys.com.br/contato): Formulário de contato e atendimento via WhatsApp.
+- [Política de Privacidade](https://adasys.com.br/privacidade)
+- [Termos de Uso](https://adasys.com.br/termos-de-uso)
+
+## Contato
+
+- WhatsApp: https://wa.me/5511968283887
+- Site: https://adasys.com.br

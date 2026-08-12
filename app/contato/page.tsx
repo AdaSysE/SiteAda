@@ -3,9 +3,26 @@ import Link from "next/link";
 import { ContactHero, Footer, Header } from "../components";
 import ContatoForm from "./contato-form";
 
+const title = "Contato";
+const description = "Fale com a equipe da ADA e entenda como o ERP pode ajudar a sua operação de e-commerce.";
+
 export const metadata: Metadata = {
-  title: "Contato",
-  description: "Fale com a equipe da ADA e entenda como o ERP pode ajudar a sua operação de e-commerce.",
+  title,
+  description,
+  alternates: { canonical: "/contato" },
+  openGraph: {
+    type: "website",
+    url: "/contato",
+    title: `${title} | ADA ERP`,
+    description,
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "ADA ERP" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${title} | ADA ERP`,
+    description,
+    images: ["/og-image.png"],
+  },
 };
 
 export default function Contato() {

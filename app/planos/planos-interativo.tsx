@@ -34,6 +34,35 @@ const steps = [
   { n: "04", title: "Preparamos sua empresa para entrar em operação" },
 ];
 
+const faqItems = [
+  {
+    question: "A implantação está dentro da mensalidade?",
+    answer: "Não. A implantação é contratada separadamente porque envolve configuração, migração orientada e validação dos fluxos da operação.",
+  },
+  {
+    question: "Como funciona o excedente de NF-e?",
+    answer: "Caso o limite mensal do plano seja ultrapassado, será cobrado um valor adicional somente por cada NF-e autorizada excedente. O valor por nota será informado na proposta comercial.",
+  },
+  {
+    question: "Posso mudar de plano depois?",
+    answer: "Sim. O plano pode acompanhar o crescimento da sua operação.",
+  },
+  {
+    question: "O que é considerado um aplicativo de conexão?",
+    answer: "Um aplicativo de conexão liga uma empresa cadastrada na ADA a um hub, integrador ou sistema externo. Vários marketplaces podem compartilhar o mesmo aplicativo quando seus pedidos são enviados pelo mesmo integrador para a mesma empresa na ADA.\n\nSe os marketplaces precisarem enviar pedidos para empresas diferentes no ERP, será necessário um aplicativo para cada empresa, mesmo que todos utilizem o mesmo integrador.",
+  },
+];
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: { "@type": "Answer", text: item.answer },
+  })),
+};
+
 export default function PlanosInterativo() {
   const router = useRouter();
   const [selectedPlan, setSelectedPlan] = useState("");
@@ -111,28 +140,23 @@ export default function PlanosInterativo() {
       </section>
 
       <section className="faq price-faq">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
         <div>
           <span className="section-label">Dúvidas sobre os planos</span>
           <h2>O que está incluído?</h2>
         </div>
         <div className="questions">
-          <details open>
-            <summary>A implantação está dentro da mensalidade?<span>+</span></summary>
-            <p>Não. A implantação é contratada separadamente porque envolve configuração, migração orientada e validação dos fluxos da operação.</p>
-          </details>
-          <details>
-            <summary>Como funciona o excedente de NF-e?<span>+</span></summary>
-            <p>Caso o limite mensal do plano seja ultrapassado, será cobrado um valor adicional somente por cada NF-e autorizada excedente. O valor por nota será informado na proposta comercial.</p>
-          </details>
-          <details>
-            <summary>Posso mudar de plano depois?<span>+</span></summary>
-            <p>Sim. O plano pode acompanhar o crescimento da sua operação.</p>
-          </details>
-          <details>
-            <summary>O que é considerado um aplicativo de conexão?<span>+</span></summary>
-            <p>Um aplicativo de conexão liga uma empresa cadastrada na ADA a um hub, integrador ou sistema externo. Vários marketplaces podem compartilhar o mesmo aplicativo quando seus pedidos são enviados pelo mesmo integrador para a mesma empresa na ADA.</p>
-            <p>Se os marketplaces precisarem enviar pedidos para empresas diferentes no ERP, será necessário um aplicativo para cada empresa, mesmo que todos utilizem o mesmo integrador.</p>
-          </details>
+          {faqItems.map((item, i) => (
+            <details key={item.question} open={i === 0}>
+              <summary>{item.question}<span>+</span></summary>
+              {item.answer.split("\n\n").map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </details>
+          ))}
         </div>
       </section>
 

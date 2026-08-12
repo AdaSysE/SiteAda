@@ -1,9 +1,26 @@
 import type { Metadata } from "next";
 import { AboutHero, CTA, Footer, Header } from "../components";
 
+const title = "Sobre a ADA";
+const description = "Conheça a origem da ADA, o ERP feito para e-commerce a partir de mais de 13 anos de experiência no setor.";
+
 export const metadata: Metadata = {
-  title: "Sobre a ADA",
-  description: "Conheça a origem da ADA, o ERP feito para e-commerce a partir de mais de 13 anos de experiência no setor.",
+  title,
+  description,
+  alternates: { canonical: "/sobre" },
+  openGraph: {
+    type: "website",
+    url: "/sobre",
+    title: `${title} | ADA ERP`,
+    description,
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "ADA ERP" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${title} | ADA ERP`,
+    description,
+    images: ["/og-image.png"],
+  },
 };
 
 export default function Sobre() {

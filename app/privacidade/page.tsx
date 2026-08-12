@@ -2,9 +2,26 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header, PageHero } from "../components";
 
+const title = "Política de Privacidade";
+const description = "Saiba como a ADA coleta, usa e protege seus dados pessoais. Leia nossa Política de Privacidade.";
+
 export const metadata: Metadata = {
-  title: "Política de Privacidade",
-  description: "Saiba como a ADA coleta, usa e protege seus dados pessoais. Leia nossa Política de Privacidade.",
+  title,
+  description,
+  alternates: { canonical: "/privacidade" },
+  openGraph: {
+    type: "website",
+    url: "/privacidade",
+    title: `${title} | ADA ERP`,
+    description,
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "ADA ERP" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${title} | ADA ERP`,
+    description,
+    images: ["/og-image.png"],
+  },
 };
 
 export default function Privacidade() {

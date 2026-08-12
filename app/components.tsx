@@ -244,3 +244,24 @@ export function ContactHero({ label, title, highlight, text, children }: { label
     </section>
   );
 }
+
+export type FaqItem = { question: string; answer: string };
+
+export function FAQ({ label, title, items, className }: { label: string; title: string; items: FaqItem[]; className?: string }) {
+  return (
+    <section className={`faq${className ? ` ${className}` : ""}`}>
+      <div>
+        <span className="section-label">{label}</span>
+        <h2>{title}</h2>
+      </div>
+      <div className="questions">
+        {items.map((item) => (
+          <details key={item.question}>
+            <summary>{item.question}<span>+</span></summary>
+            <p>{item.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  );
+}

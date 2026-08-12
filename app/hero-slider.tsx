@@ -85,7 +85,11 @@ export function HeroSlider() {
         <div className={`hero-slide${i === active ? " is-active" : ""}`} key={s.title} aria-hidden={i !== active}>
           <div className="hero-copy">
             <div className="eyebrow"><i />{s.eyebrow}</div>
-            <h1>{s.title}<br /><strong>{s.highlight}</strong></h1>
+            {i === active ? (
+              <h1 className="hero-title">{s.title}<br /><strong>{s.highlight}</strong></h1>
+            ) : (
+              <p className="hero-title" aria-hidden="true">{s.title}<br /><strong>{s.highlight}</strong></p>
+            )}
             <p>{s.text}</p>
             <div className="hero-actions">
               <Link className="primary" href={s.primary.href}>{s.primary.label}</Link>
