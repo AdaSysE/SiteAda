@@ -175,7 +175,7 @@ export default function Privacidade() {
           <p>Recomendamos que você revise periodicamente esta Política de Privacidade para obter as informações mais recentes sobre nossas práticas de privacidade.</p>
 
           <h3>13. Como entrar em contato conosco</h3>
-          <p>Se você tiver dúvidas, preocupações ou solicitações relacionadas a esta Política de Privacidade ou ao processamento de suas informações pessoais, entre em contato conosco pelo e-mail <a href="mailto:adasyserp@gmail.com">adasyserp@gmail.com</a> ou pelo nosso <Link href="/contato">formulário de contato</Link>.</p>
+          <p>Se você tiver dúvidas, preocupações ou solicitações relacionadas a esta Política de Privacidade ou ao processamento de suas informações pessoais, entre em contato conosco pelo e-mail <a href="mailto:comercial@adasys.com.br">comercial@adasys.com.br</a> ou pelo nosso <Link href="/contato">formulário de contato</Link>.</p>
         </article>
       </section>
 

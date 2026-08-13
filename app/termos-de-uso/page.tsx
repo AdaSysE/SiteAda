@@ -167,7 +167,7 @@ export default function TermosDeUso() {
           <p>Podemos fornecer notificações a você por e-mail, ou publicações em nosso site ou serviços. Tais notificações serão consideradas entregues na data de transmissão.</p>
 
           <h3>16. Como Entrar em Contato Conosco</h3>
-          <p>Se você tiver dúvidas sobre estes Termos de Uso, entre em contato conosco pelo e-mail <a href="mailto:adasyserp@gmail.com">adasyserp@gmail.com</a> ou pelo nosso <Link href="/contato">formulário de contato</Link>.</p>
+          <p>Se você tiver dúvidas sobre estes Termos de Uso, entre em contato conosco pelo e-mail <a href="mailto:comercial@adasys.com.br">comercial@adasys.com.br</a> ou pelo nosso <Link href="/contato">formulário de contato</Link>.</p>
         </article>
       </section>
 
