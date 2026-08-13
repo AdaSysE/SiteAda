@@ -72,6 +72,7 @@ export default function Contato() {
             <li>✓ Treinamento da equipe</li>
             <li>✓ Acompanhamento da entrada em operação</li>
             <li>✓ Suporte via WhatsApp</li>
+            <li>✓ E-mail: <a href="mailto:comercial@adasys.com.br">comercial@adasys.com.br</a></li>
           </ul>
         </div>
       </section>

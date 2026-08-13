@@ -175,6 +175,8 @@ footer { background: var(--ink); color: #fff; padding: 40px max(6vw, 30px) 24px;
 footer p { margin: 0; color: #aaa1af; max-width: 420px; font-size: 13px; line-height: 1.6; }
 footer > div { display: flex; gap: 20px; font-size: 12px; justify-content: flex-end; }
 footer > div a:hover { color: var(--purple-soft); }
+.footer-social { display: flex; align-items: center; gap: 14px; }
+.footer-social svg { width: 16px; height: 16px; display: block; }
 footer > small { grid-column: 1/-1; text-align: center; border-top: 1px solid #ffffff17; padding-top: 18px; margin-top: 8px; color: #756e79; font-size: 10px; }
 
 @media (max-width: 900px) {
