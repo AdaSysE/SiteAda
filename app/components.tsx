@@ -227,7 +227,7 @@ export function ProductHero({ label, title, highlight, text }: { label: string; 
   );
 }
 
-const ADA_WHATSAPP_NUMBER = "5511968283887";
+const ADA_WHATSAPP_NUMBER = "5511996227364";
 
 export function ContactHero({ label, title, highlight, text, children }: { label: string; title: string; highlight?: string; text: string; children: ReactNode }) {
   return (
